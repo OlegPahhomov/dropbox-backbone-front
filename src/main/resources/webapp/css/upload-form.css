@@ -1,0 +1,34 @@
+.upload-block {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    margin-left: 20px;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.upload-block__item {
+    background: antiquewhite;
+    width: 200px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    flex-basis: auto;
+}
+
+.upload-block__note {
+    text-align: start;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.upload-block__item--big {
+    width: 410px;
+}
+
+.upload-item-input {
+    box-sizing: border-box
+}
