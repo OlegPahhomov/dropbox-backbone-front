@@ -41,10 +41,8 @@ $(document).ready(function () {
         var files = $("#file-container");
         this.collection.each(function (picture) {
             var onePictureView = new OnePictureView({model: picture});
-
             files.append(onePictureView.render().el);
         });
-        
 
         /*var template = _.template($('#pictures_template').html());
          var content = {
