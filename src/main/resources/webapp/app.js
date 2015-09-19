@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     var OnePicture = Backbone.Model.extend({
         defaults: {
             id: 1,
@@ -18,62 +17,47 @@ $(document).ready(function () {
     });
 
     var OnePictureView = Backbone.View.extend({
-        render: function () {
-            var template = _.template($('#one_picture_template').html());
-            var content = {
-                id: this.model.get('id'),
-                thumbnailUrl: this.model.get('thumbnailUrl'),
-                href: this.model.get('href'),
-                imgUrl: this.model.get('imgUrl'),
-                deleteId: this.model.get('deleteId'),
-                ratioClass: this.model.get('ratioClass')
+        template: $('#one_picture_template').html(),
 
-            };
-            var html = template(content);
+        render: function () {
+            var template = _.template(this.template);
+            var html = template(this.model.toJSON());
             $(this.el).html(html);
             return this;
         }
     });
 
     var PicturesView = Backbone.View.extend({
+        el: $("#file-container"),
 
-    render: function () {
-        var files = $("#file-container");
-        this.collection.each(function (picture) {
-            var onePictureView = new OnePictureView({model: picture});
-            files.append(onePictureView.render().el);
-        });
+        initialize: function () {
+            _.bindAll(this, 'render', 'renderPicture'); // every function that uses 'this' as the current object should be in here
+            this.render();
+        },
 
-        /*var template = _.template($('#pictures_template').html());
-         var content = {
-         content: this.model.get('content')
-         };
-         var html = template(content);
-         this.$el.append(html);*/
-        return this;
-    }
-});
+        render: function () {
+            _.each(this.collection.models, function (picture) {
+                this.renderPicture(picture);
+            }, this);
 
-// Now, the minimum amount needed to get a template to render
-// with a bit of data from the SuperBasic model we've created.
-var PictureModel = new OnePicture();
-var PictureModel2 = new OnePicture(
-    {   id: 2,
-        name: "picture 2",
-        ratio: 1.5,
-        thumbnailUrl: "http://localhost:8080/picture/small/2",
-        href: "#show_popup_link_2",
-        imgUrl: "http://localhost:8080/picture/2",
-        deleteId: "delete_file_2",
-        ratioClass: "file bigfile"});
+            /*var template = _.template($('#pictures_template').html());
+             var content = {
+             content: this.model.get('content')
+             };
+             var html = template(content);
+             this.$el.append(html);*/
+            return this;
+        },
 
-var pictures = new Pictures();
-pictures.add(PictureModel);
-pictures.add(PictureModel2);
+        renderPicture: function (picture) {
+            var onePictureView = new OnePictureView(
+                {model: picture}
+            );
+            this.$el.append(onePictureView.render().el);
+        }
+    });
 
-var MainPageView = new PicturesView({ collection: pictures});
-MainPageView.render();
-
+    var MainPageView = new PicturesView({collection: new Pictures(mypictures)});
 
 })
 ;
