@@ -1,7 +1,6 @@
 $(document).ready(function () {
-    var OnePicture = Backbone.Model.extend({
+    var picture = Backbone.Model.extend({
         defaults: {
-            id: 1,
             name: "cute kittens",
             ratio: 1.5,
             thumbnailUrl: "http://localhost:8080/picture/small/1",
@@ -12,11 +11,11 @@ $(document).ready(function () {
         }
     });
 
-    var Pictures = Backbone.Collection.extend({
-        model: OnePicture
+    var Gallery = Backbone.Collection.extend({
+        model: picture
     });
 
-    var OnePictureView = Backbone.View.extend({
+    var PictureView = Backbone.View.extend({
         template: $('#one_picture_template').html(),
 
         render: function () {
@@ -24,15 +23,26 @@ $(document).ready(function () {
             var html = template(this.model.toJSON());
             $(this.el).html(html);
             return this;
+        },
+
+        events: {
+            "click .close": "deletePicture"
+        },
+
+        deletePicture: function () {
+            this.model.destroy();
+            this.remove();
         }
     });
 
-    var PicturesView = Backbone.View.extend({
+    var GalleryView = Backbone.View.extend({
         el: $("#file-container"),
 
         initialize: function () {
-            _.bindAll(this, 'render', 'renderPicture'); // every function that uses 'this' as the current object should be in here
+            _.bindAll(this, 'render', 'renderPicture', 'removePicture'); // every function that uses 'this' as the current object should be in here
             this.render();
+
+            this.collection.on("remove", this.removePicture, this);
         },
 
         render: function () {
@@ -50,14 +60,29 @@ $(document).ready(function () {
         },
 
         renderPicture: function (picture) {
-            var onePictureView = new OnePictureView(
+            var onePictureView = new PictureView(
                 {model: picture}
             );
             this.$el.append(onePictureView.render().el);
+        },
+
+        removePicture: function (picture) {
+            var pictureData = picture.attributes;
+
+            _.each(pictureData, function (val, key) {
+                if (pictureData[key] === picture.defaults[key]) {
+                    delete pictureData[key];
+                }
+            });
+
+            _.each(mypictures, function (mypicture) {
+                if (_.isEqual(mypicture, pictureData)) {
+                    mypictures.splice(_.indexOf(mypictures, mypicture), 1);
+                }
+            });
         }
     });
 
-    var MainPageView = new PicturesView({collection: new Pictures(mypictures)});
 
-})
-;
+    var MainPageView = new GalleryView({collection: new Gallery(mypictures)});
+});

@@ -42,12 +42,11 @@
            title="<%=name %>">
             <img title="<%= name %>" src="<%= thumbnailUrl %>">
         </a>
+
         <div class="file-fullscreen" id="<%= href %>" style="display: none;">
             <img src="<%= imgUrl %>">
         </div>
-        <form id="<%= deleteId %>">
-            <button type="submit" class="close" title="Delete file">&times;</button>
-        </form>
+        <button class="close" title="Delete file">&times;</button>
     </div>
 </script>
 

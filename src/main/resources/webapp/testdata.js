@@ -2,7 +2,6 @@
 var mypictures = [
     {},
     {
-        id: 2,
         name: "picture 2",
         ratio: 1.5,
         thumbnailUrl: "http://localhost:8080/picture/small/2",

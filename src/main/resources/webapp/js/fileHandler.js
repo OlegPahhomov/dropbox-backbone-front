@@ -7,7 +7,7 @@ var fileHandler = {
                     .html(tmpl("show_files_template", fileHandler.createResponse(response)))
                     .promise()
                     .done(function () {
-                        fileHandler.deletePicture();
+                        //fileHandler.deletePicture();
                     });
             }).fail(function (jqXHR, textStatus) {
                 showFilesElem.html("Error occurred");
