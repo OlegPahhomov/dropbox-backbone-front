@@ -1516,7 +1516,7 @@
     },
 
     // Given a route, and a URL fragment that it matches, return the array of
-    // extracted decoded parameters. Empty or unmatched parameters will be
+    // renderPicture decoded parameters. Empty or unmatched parameters will be
     // treated as `null` to normalize cross-browser behavior.
     _extractParameters: function(route, fragment) {
       var params = route.exec(fragment).slice(1);

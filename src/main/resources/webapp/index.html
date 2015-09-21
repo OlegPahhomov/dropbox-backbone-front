@@ -3,54 +3,46 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Simple file uploader</title>
-    <!-- jQuery -->
-    <script src="libs/jquery-2.1.4.js"></script>
-    <!-- underscore -->
-    <script src="libs/underscore.js"></script>
-    <!-- backbone -->
-    <script src="libs/backbone.js"></script>
-    <script src="testdata.js"></script>
-    <script src="app.js"></script>
-    <!-- fancybox -->
-    <link rel="stylesheet" href="libs/fancybox/source/jquery.fancybox.css">
-    <script src="libs/fancybox/source/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/files.css">
+    <link rel="stylesheet" type="text/css" href="css/upload-form.css">
+
 </head>
 <body>
 
 <div id="content">
-    <div id="header"></div>
-    <div id="superbasic1"></div>
+    <!--<div id="header"></div>-->
     <div id="file-container" class="file-container"></div>
-    <div id="show_files">Loading...</div>
-    <div id="file-form-div"></div>
-    <div id="file-json-form-div"></div>
-    <div id="file-json-bulk-form-div"></div>
+    <!--<div id="show_files">Loading...</div>-->
+    <!--<div id="file-form-div"></div>-->
+    <!--<div id="file-json-form-div"></div>-->
+    <!--<div id="file-json-bulk-form-div"></div>-->
 </div>
 
-<script type="text/template" id="pictures_template">
+<!--<script type="text/template" id="gallery_template">
     <div class="heading"><h3>List Of Files</h3></div>
     <div class="file-container">
         <%= pictures %>
     </div>
-</script>
+</script>-->
 
-<script type="text/template" id="one_picture_template">
+<script type="text/template" id="picture_template">
     <div class="<%= ratioClass %>">
-        <a class="fancybox"
-           href="<%= href %>"
-           rel="pictures"
-           title="<%=name %>">
-            <img title="<%= name %>" src="<%= thumbnailUrl %>">
-        </a>
+    <a class="fancybox"
+       href="<%= href %>"
+       rel="pictures"
+       title="<%=name %>">
+        <img title="<%= name %>" src="<%= thumbnailUrl %>">
+    </a>
 
-        <div class="file-fullscreen" id="<%= href %>" style="display: none;">
-            <img src="<%= imgUrl %>">
-        </div>
-        <button class="close" title="Delete file">&times;</button>
+    <div class="file-fullscreen" id="<%= href %>" style="display: none;">
+        <img src="<%= imgUrl %>">
+    </div>
+    <button class="close" title="Delete file">&times;</button>
     </div>
 </script>
 
 
+<!--
 <script type="text/html" id="show_files_template">
     <div class="heading"><h3>List Of Files</h3></div>
     <div class="file-container">
@@ -79,12 +71,18 @@
         </form>
     </div>
 </script>
+-->
 
+<script src="libs/jquery-2.1.4.js"></script>
+<script src="libs/underscore.js"></script>
+<script src="libs/fancybox/source/jquery.fancybox.pack.js"></script>
+<script src="libs/backbone.js"></script>
+<script src="app.js"></script>
 
-<script src="js/serverConfig.js"></script>
-<script src="js/fileHandler.js"></script>
+<!--<script src="js/serverConfig.js"></script>-->
+<!--<script src="js/fileHandler.js"></script>-->
 <script>
-    $.get('header.html', function (data) {
+    /*$.get('header.html', function (data) {
         $('#header').html(data).promise().done(function () {
             fileHandler.loadPictures();
             $.get('html/upload-form.html', function (data) {
@@ -98,7 +96,7 @@
             });
             $('.fancybox').fancybox();
         });
-    });
+    });*/
 </script>
 </body>
 </html>
