@@ -1,9 +1,6 @@
 (function ($) {
     var Picture = Backbone.Model.extend({
         defaults: {
-            id: 0,
-            name: "cute kittens",
-            ratio: 1.5
         },
         idAttribute: "id"
     });
@@ -45,10 +42,16 @@
     });
 
     var GalleryView = Backbone.View.extend({
-            el: $("#file-container"),
+            el: $("#content"),
+            container: $("#file-container"),
+            uploadForm: $("#upload-form"),
+
+            events: {
+                "click #addFile": "addFiles"
+            },
 
             initialize: function () {
-                _.bindAll(this, 'render', 'renderPicture'); // every function that uses 'this' as the current object should be in here
+                _.bindAll(this, 'render', 'renderPicture', 'addFiles', 'readFile'); // every function that uses 'this' as the current object should be in here
                 this.collection = new Gallery();
                 this.collection.fetch();
                 this.render();
@@ -68,7 +71,37 @@
 
             renderPicture: function (item) {
                 var pictureView = new PictureView({model: item});
-                this.$el.append(pictureView.render().el);
+                $(this.container).append(pictureView.render().el);
+            },
+
+            readFile: function (file) {
+                var defer = jQuery.Deferred();
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function shipOff(event) {
+                    var result = event.target.result;
+                    var fileName = file.name;
+                    defer.resolve({file: result, name: fileName});
+                };
+                return defer.promise();
+            },
+
+            addFiles: function (e) {
+                e.preventDefault();
+
+                that = this;
+                var uploadedFiles = that.uploadForm[0].file.files;
+                for (var i = 0; i < uploadedFiles.length; i++) {
+                    var file = uploadedFiles[i];
+                    var request = that.readFile(file);
+                    request.done(function (req) {
+                        that.collection.create(req, {
+                            wait: true,
+                            type: 'post',
+                            url: 'http://localhost:8080/addjson'
+                        })
+                    });
+                }
             }
         }
     );
