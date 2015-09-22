@@ -13,7 +13,7 @@
     });
 
     var Gallery = Backbone.Collection.extend({
-        url: 'http://localhost:8080/files',
+        url: serverConfig.url('files'),
         model: Picture
     });
 
@@ -26,10 +26,10 @@
             var pictureDTO = {
                 id: id,
                 name: this.model.get('name'),
-                thumbnailUrl: "http://localhost:8080/picture/small/" + id,
+                thumbnailUrl: serverConfig.url('picture/small/' + id),
                 href: "#show_popup_link_" + id,
                 href_id: "show_popup_link_" + id,
-                imgUrl: "http://localhost:8080/picture/" + id,
+                imgUrl: serverConfig.url('picture/' + id),
                 ratioClass: this.model.get('ratio') > 1.45 ? 'file bigfile' : 'file'
             };
             $(this.el).html(tmpl(pictureDTO));
@@ -43,7 +43,7 @@
         deletePicture: function () {
             this.model.destroy({
                 type: 'post',
-                url: "http://localhost:8080/remove/" + this.model.get('id')
+                url: serverConfig.url('remove/' + this.model.get('id'))
             });
             this.remove();
         }
@@ -106,7 +106,7 @@
                         that.collection.create(req, {
                             wait: true,
                             type: 'post',
-                            url: 'http://localhost:8080/addjson'
+                            url: serverConfig.url('addjson')
                         })
                     });
                 }
