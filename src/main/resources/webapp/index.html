@@ -62,7 +62,7 @@
             <img title="<%= name %>" src="<%= thumbnailUrl %>">
         </a>
 
-        <div class="file-fullscreen" id="<%= href %>" style="display: none;">
+        <div class="file-fullscreen" id="<%= href_id %>" style="display: none;">
             <img src="<%= imgUrl %>">
         </div>
         <button class="close" title="Delete file">&times;</button>
@@ -105,9 +105,10 @@
 <script src="libs/underscore.js"></script>
 <script src="libs/fancybox/source/jquery.fancybox.pack.js"></script>
 <script src="libs/backbone.js"></script>
+<script src="libs/mousewheel/jquery.mousewheel-3.0.6.pack.js"></script>
+<script src="libs/microtemplate/microtemplating.js"></script>
 <script src="app.js"></script>
-
-<!--<script>$('.fancybox').fancybox();</script>-->
+<script>$('.fancybox').fancybox();</script>
 <!--<script src="js/serverConfig.js"></script>-->
 <!--<script src="js/fileHandler.js"></script>-->
 <!--<script>

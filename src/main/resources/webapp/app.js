@@ -2,7 +2,14 @@
     var Picture = Backbone.Model.extend({
         defaults: {
         },
-        idAttribute: "id"
+        idAttribute: "id",
+
+        validate: function(attrs, options) {
+            if (attrs.file.substring(0,10) !== "data:image" ) {
+                console.log("it's not an image");
+                return "it's not an image";
+            }
+        }
     });
 
     var Gallery = Backbone.Collection.extend({
@@ -21,6 +28,7 @@
                 name: this.model.get('name'),
                 thumbnailUrl: "http://localhost:8080/picture/small/" + id,
                 href: "#show_popup_link_" + id,
+                href_id: "show_popup_link_" + id,
                 imgUrl: "http://localhost:8080/picture/" + id,
                 ratioClass: this.model.get('ratio') > 1.45 ? 'file bigfile' : 'file'
             };

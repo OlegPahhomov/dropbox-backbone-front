@@ -1,4 +1,4 @@
-# dropbox-simple-front
+# dropbox-backbone-front
 
 ####### Goal
 Creating a simple file upload and viewing platform using different languages and frameworks
