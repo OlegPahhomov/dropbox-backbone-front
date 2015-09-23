@@ -18,7 +18,7 @@ rbg(197, 91, 17)*/
     border: solid 1px rgba(120, 56, 10, 0.4);
     /*border: solid rgba(197, 91, 17, 0.4);*/
     border-radius: 20px;
-    box-shadow: 0px 2px 5px 0px rgba(120, 56, 10, 0.7);
+    box-shadow: 1px 3px 3px 0px rgba(120, 56, 10, 0.95);
 }
 
 .upload-form__heading {
