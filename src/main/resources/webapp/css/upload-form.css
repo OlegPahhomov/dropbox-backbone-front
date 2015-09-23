@@ -1,18 +1,25 @@
 .upload-form {
     margin-top: 20px;
     margin-left: 19px;
+    padding-top: 10px;
     max-width: 618px;
     min-width: 410px;
+    background: rgba(197, 91, 17, 0.3);
 }
 
-.border-on-div {
+.upload-form__border {
     border: solid rgba(120, 56, 10, 0.4);
     /*border: solid rgba(197, 91, 17, 0.4);*/
     border-radius: 20px;
     box-shadow: 0px 0px 5px 1px rgba(120, 56, 10, 0.4);
 }
 
-.upload-block {
+.upload-form__heading {
+    margin-left: 20px;
+    display: inline;
+}
+
+.upload-block--container {
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
@@ -30,7 +37,7 @@
     flex-basis: auto;
 }
 
-.upload-block__note {
+.upload-block__item__note {
     text-align: start;
     font-style: italic;
     font-weight: normal;
@@ -40,6 +47,10 @@
     width: 390px;
 }
 
-.upload-item-input {
+.upload-block__item--very-big {
+    width: inherit;
+}
+
+.upload-item__file-input {
     box-sizing: border-box
 }

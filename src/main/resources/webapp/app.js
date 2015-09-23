@@ -24,20 +24,19 @@
             var tmpl = _.template(this.template);
             var id = this.model.get('id');
             var pictureDTO = {
-                id: id,
                 name: this.model.get('name'),
-                thumbnailUrl: serverConfig.url('picture/small/' + id),
-                href: "#show_popup_link_" + id,
-                href_id: "show_popup_link_" + id,
-                imgUrl: serverConfig.url('picture/' + id),
-                ratioClass: this.model.get('ratio') > 1.45 ? 'file bigfile' : 'file'
+                thumbnail_url: serverConfig.url('picture/small/' + id),
+                href_to_pop_up: "#show_popup_link_" + id,
+                href_pop_up: "show_popup_link_" + id,
+                picture_url: serverConfig.url('picture/' + id),
+                picture_size_class: this.model.get('ratio') > 1.45 ? 'picture picture--big' : 'picture'
             };
             $(this.el).html(tmpl(pictureDTO));
             return this;
         },
 
         events: {
-            "click .close": "deletePicture"
+            "click .picture__close": "deletePicture"
         },
 
         deletePicture: function () {
@@ -51,8 +50,9 @@
 
     var GalleryView = Backbone.View.extend({
             el: $("#content"),
-            container: $("#file-container"),
+            container: $("#gallery-container"),
             uploadForm: $("#upload-form"),
+            loadingScreen: $("#loading-screen"),
 
             events: {
                 "click #addFile": "addFiles"
@@ -101,7 +101,6 @@
                         type: 'post',
                         url: serverConfig.url('addjson'),
                         success: function () {
-                            console.log("123");
                             defer.resolve();
                         }
                     })
@@ -110,7 +109,7 @@
 
             addFiles: function (e) {
                 e.preventDefault();
-                $("#screen").show();
+                this.loadingScreen.show();
                 that = this;
                 var uploadedFiles = that.uploadForm[0].file.files;
                 var deffers = [];
@@ -122,7 +121,7 @@
                     request.done(this.createPicture(defer));
                 }
                 $.when.apply($, deffers).then(function () {
-                    $("#screen").hide();
+                    that.loadingScreen.hide();
             });
             }
         }

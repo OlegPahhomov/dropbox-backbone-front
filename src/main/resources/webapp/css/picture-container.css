@@ -1,28 +1,4 @@
-.logo {
-    margin-top: 10px;
-    margin-left: 20px;
-    width: 500px;
-}
-.logo img {
-    height: 100%;
-    width: 100%;
-}
-
-.copyright{
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.heading {
-    margin-left: 20px;
-    display: inline
-}
-
-h1, h2, h3 {
-    display: inline
-}
-
-.file-container {
+.pictures-container {
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
@@ -31,7 +7,7 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
-.file {
+.picture {
     margin-right: 10px;
     margin-top: 10px;
     width: 200px;
@@ -40,11 +16,11 @@ h1, h2, h3 {
     position: relative;
 }
 
-.bigfile {
+.picture--big {
     width: 410px;
 }
 
-.file img {
+.picture img {
     max-width: 100%;
     max-height: 100%;
     height: 100%;
@@ -57,7 +33,7 @@ h1, h2, h3 {
 
 @media only screen
 and (max-width: 500px) {
-    .file-fullscreen {
+    .picture--fullscreen {
         max-width: 400px;
         height: auto;
     }
@@ -65,7 +41,7 @@ and (max-width: 500px) {
 
 @media only screen
 and (min-width: 750px) {
-    .file-fullscreen {
+    .picture--fullscreen {
         max-width: 1500px;
         min-width: 650px;
         height: auto;
@@ -74,7 +50,7 @@ and (min-width: 750px) {
 
 @media only screen
 and (min-width: 1100px) {
-    .file-fullscreen {
+    .picture--fullscreen {
         max-width: 1500px;
         min-width: 800px;
         height: auto;
@@ -83,7 +59,7 @@ and (min-width: 1100px) {
 
 @media only screen
 and (max-height: 1100px) {
-    .file-fullscreen img {
+    .picture--fullscreen img {
         max-width: 100%;
         max-height: 650px;
         height: auto !important;
@@ -94,7 +70,7 @@ and (max-height: 1100px) {
 
 @media only screen
 and (min-height: 1100px) {
-    .file-fullscreen img {
+    .picture--fullscreen img {
         max-width: 100%;
         max-height: 1000px;
         height: auto !important;
@@ -103,16 +79,11 @@ and (min-height: 1100px) {
     }
 }
 
-.file__title {
-    color: white;
-    font-weight: bold;
-}
-
-.close {
+.picture__close {
     background: transparent;
     position: absolute;
-    top: 6px;
-    right: -2px;
+    top: 7px;
+    right: 0;
 
     font-size: 40px;
     font-weight: bold;
@@ -125,64 +96,23 @@ and (min-height: 1100px) {
     border: none;
 }
 
-.close:hover {
+.picture__close:hover {
     color: red;
     text-decoration: none;
     opacity: 0.8;
     cursor: pointer;
 }
 
-.close:active {
+.picture__close:active {
     border: none;
     outline: none;
 }
 
-.close:focus {
+.picture__close:focus {
     border: none;
     outline: none;
 }
 
-.file__delete {
-    position: absolute;
-    bottom: 0;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 18px;
-    color: #000000;
-    text-shadow: 0 1px 0 #ffffff;
-    opacity: 0.2;
-    text-decoration: none;
-    clear: left;
-    float: left;
-}
 
-.file__delete.hover {
-    color: red;
-    text-decoration: none;
-    opacity: 0.8;
-    cursor: pointer;
-}
 
-.inherit-width {
-    width: inherit;
-}
-
-#screen {
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%; /*image width */
-    height: 100%; /*image height */
-    background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url("../img/ajax-loader.gif");
-    background-repeat: repeat, no-repeat;
-    background-position: center, center;
-    background-size: 100% 100%, 25%;
-}
-
-body {
-
-    background: url("../img/ricepaper2.png")
-}
 
