@@ -2,13 +2,15 @@ var serverConfig = {
 
     //reconfig this to return base server
     SERVER: function () {
-        return this.SPRING_BOOT();
+        return this.HEROKU;
     },
 
     url: function (url) {
         return serverConfig.SERVER() + url
     },
 
+
+    HEROKU: "https://dropbox-sparkjava.herokuapp.com/",
     //define here elements
     LOCALHOST: "http://localhost:",
     XXX_SERVER: "some-external-url",

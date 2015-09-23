@@ -7,8 +7,15 @@ rgb(120,77, 46)
 rbg(197, 91, 17)
 */
 
+html {
+    height: 100%;
+}
 body {
-    background: url("../img/cardboard_flat.png")
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../img/cardboard_flat.png");
+    background-repeat: no-repeat, repeat;
 }
 
 .logo {
@@ -16,6 +23,7 @@ body {
     margin-left: 20px;
     width: 500px;
 }
+
 .logo img {
     height: 85%;
     width: 85%;
@@ -29,7 +37,8 @@ body {
     bottom: 0;
     width: 100%; /*image width */
     height: 100%; /*image height */
-    background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url("../img/ajax-loader_bert.gif");
+    background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)),
+    url("../img/ajax-loader_bert.gif");
     background-repeat: repeat, no-repeat;
     background-position: center, center;
     background-size: 100% 100%, 15%;
@@ -39,7 +48,7 @@ body {
     width: inherit;
 }
 
-.copyright{
+.copyright {
     margin-top: 20px;
     margin-left: 20px;
 }

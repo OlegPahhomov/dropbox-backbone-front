@@ -1,10 +1,16 @@
+/*center rgb(248, 115, 21)
+rgb(120, 56, 10);
+rgb(249,150, 96)
+rgb(120,77, 46)
+rbg(197, 91, 17)*/
+
 .upload-form {
     margin-top: 20px;
     margin-left: 19px;
     padding-top: 10px;
     max-width: 618px;
     min-width: 410px;
-    background: rgba(197, 91, 17, 0.3);
+    background: rgba(248, 115, 21, 0.3);
 }
 
 .upload-form__border {
