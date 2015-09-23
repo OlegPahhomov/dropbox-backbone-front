@@ -50,8 +50,8 @@ rbg(197, 91, 17)*/
 }
 
 .xyz img {
-    height: 20%;
-    width: 20%;
+    height: 100%;
+    width: 100%;
 }
 
 .upload-block__file {
@@ -91,6 +91,7 @@ rbg(197, 91, 17)*/
 }
 
 .upload-block__button {
+    max-height: 50px;
     height: 100%;
     border-radius: 20px;
     border: solid 1px rgba(120, 56, 10, 0.4);
@@ -99,6 +100,7 @@ rbg(197, 91, 17)*/
 }
 
 .upload-block__button:hover {
+    max-height: 50px;
     height: 100%;
     border-radius: 20px;
     border: solid 1px rgba(120, 56, 10, 0.8);
