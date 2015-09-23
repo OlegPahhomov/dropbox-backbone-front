@@ -1,16 +1,27 @@
+.upload-form {
+    margin-top: 20px;
+    margin-left: 19px;
+    max-width: 618px;
+    min-width: 410px;
+}
+
+.border-on-div {
+    border: solid rgba(120, 56, 10, 0.4);
+    /*border: solid rgba(197, 91, 17, 0.4);*/
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 1px rgba(120, 56, 10, 0.4);
+}
+
 .upload-block {
-    list-style: none;
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
     margin-left: 20px;
-    max-width: 700px;
     margin-bottom: 20px;
 }
 
 .upload-block__item {
-    background: antiquewhite;
-    width: 200px;
+    width: 180px;
     margin-top: 10px;
     margin-right: 10px;
     font-weight: bold;
@@ -26,7 +37,7 @@
 }
 
 .upload-block__item--big {
-    width: 410px;
+    width: 390px;
 }
 
 .upload-item-input {

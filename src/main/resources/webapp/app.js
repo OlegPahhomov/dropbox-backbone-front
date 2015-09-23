@@ -4,8 +4,8 @@
         },
         idAttribute: "id",
 
-        validate: function(attrs, options) {
-            if (attrs.file.substring(0,10) !== "data:image" ) {
+        validate: function (attrs, options) {
+            if (attrs.file.substring(0, 10) !== "data:image") {
                 console.log("it's not an image");
                 return "it's not an image";
             }
@@ -94,22 +94,36 @@
                 return defer.promise();
             },
 
+            createPicture: function (defer) {
+                return function (req) {
+                    that.collection.create(req, {
+                        wait: true,
+                        type: 'post',
+                        url: serverConfig.url('addjson'),
+                        success: function () {
+                            console.log("123");
+                            defer.resolve();
+                        }
+                    })
+                }
+            },
+
             addFiles: function (e) {
                 e.preventDefault();
-
+                $("#screen").show();
                 that = this;
                 var uploadedFiles = that.uploadForm[0].file.files;
+                var deffers = [];
                 for (var i = 0; i < uploadedFiles.length; i++) {
+                    var defer = jQuery.Deferred();
+                    deffers.push(defer);
                     var file = uploadedFiles[i];
                     var request = that.readFile(file);
-                    request.done(function (req) {
-                        that.collection.create(req, {
-                            wait: true,
-                            type: 'post',
-                            url: serverConfig.url('addjson')
-                        })
-                    });
+                    request.done(this.createPicture(defer));
                 }
+                $.when.apply($, deffers).then(function () {
+                    $("#screen").hide();
+            });
             }
         }
     );
