@@ -36,12 +36,21 @@ rbg(197, 91, 17)*/
 
 .upload-block__item {
     width: 180px;
+    height: 50px;
     margin-top: 10px;
     margin-right: 10px;
     font-weight: bold;
     font-size: 1em;
     text-align: center;
     flex-basis: auto;
+}
+
+.upload-block__file {
+
+}
+
+.upload-block__file:focus {
+    outline: 0;
 }
 
 .upload-block__item__note {
@@ -58,6 +67,31 @@ rbg(197, 91, 17)*/
     width: inherit;
 }
 
-.upload-item__file-input {
-    box-sizing: border-box
+.upload-block__file-input {
+    height: 50px;
+}
+
+.upload-block__file-input:focus {
+    outline: 0;
+}
+
+.upload-block__button {
+    height: 100%;
+    border-radius: 20px;
+    border: solid 1px rgba(120, 56, 10, 0.4);
+    background: linear-gradient(rgba(248, 115, 21, 0.2), rgba(248, 115, 21, 1));
+    box-shadow: 1px 3px 3px 0px rgba(120, 56, 10, 0.95);
+}
+
+.upload-block__button:hover {
+    height: 100%;
+    border-radius: 20px;
+    border: solid 1px rgba(120, 56, 10, 0.8);
+    /*background: linear-gradient(rgba(120, 56, 10, 0.2), rgba(120, 56, 10, 1));*/
+    background: linear-gradient(rgba(197, 91, 17, 0.2), rgba(197, 91, 17, 1));
+    box-shadow: 1px 3px 3px 0px rgba(120, 56, 10, 0.95);
+}
+
+.upload-block__button:focus {
+    outline: 0;
 }

@@ -7,7 +7,8 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/picture-container.css">
     <link rel="stylesheet" type="text/css" href="css/upload-form.css">
-    <link rel="stylesheet" href="libs/fancybox/source/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="libs/fancybox/source/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="css/dropzone.css">
 </head>
 <body>
 
@@ -23,18 +24,20 @@
     <form id="upload-form" class="upload-form upload-form__border">
         <div class="upload-form__heading"><h3>Upload new files (json)</h3></div>
         <div class="upload-block--container">
-            <div class="upload-block__item upload-block__item--big">
+            <div class="upload-block__item upload-block__item--big upload-block__file">
                 <input id="file"
                        name="file"
                        type="file"
-                       class="inherit-width upload-item__file-input"
+                       class="inherit-width upload-block__file-input"
                        multiple
                        accept="image/*"
-                       required
-                       style="height:100%; width:100%"/>
+                       required />
+                       <!--data-styled="true"-->
+                       <!--style="opacity: 0; position: relative; border: none; margin: 0px; padding: 0px; top: 0px; right: 0px; cursor: pointer; height: 60px;"-->
+
             </div>
             <div class="upload-block__item">
-                <input id="addFile" type="submit" class="inherit-width" value="Add file">
+                <input id="addFile" type="submit" class="inherit-width upload-block__button" value="Add file">
             </div>
             <div class="upload-block__item upload-block__item--very-big upload-block__item__note">
                 Big images will be resized proportionally to 1600px width or 900px height
@@ -42,8 +45,11 @@
         </div>
     </form>
 
-</div>
+    <!--<form action="http://localhost:8080/addjson" class="dropzone"></form>-->
 
+
+
+</div>
 <script type="text/template" id="picture_template">
     <div class="<%= picture_size_class %>">
         <a class="fancybox"
@@ -66,9 +72,12 @@
 <script src="libs/fancybox/source/jquery.fancybox.pack.js"></script>
 <script src="libs/backbone.js"></script>
 <script src="libs/mousewheel/jquery.mousewheel-3.0.6.pack.js"></script>
-<script src="libs/microtemplate/microtemplating.js"></script>
+<script src="libs/dropzone.js"></script>
+
 <script src="app.js"></script>
-<script>$('.fancybox').fancybox();</script>
+<script>
+    $('.fancybox').fancybox();
+</script>
 
 </body>
 </html>
