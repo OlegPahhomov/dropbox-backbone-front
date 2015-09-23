@@ -45,13 +45,19 @@ rbg(197, 91, 17)*/
     flex-basis: auto;
 }
 
+.xyz {
+    position: absolute;
+}
+
+.xyz img {
+    height: 20%;
+    width: 20%;
+}
+
 .upload-block__file {
-
+    overflow: hidden;
 }
 
-.upload-block__file:focus {
-    outline: 0;
-}
 
 .upload-block__item__note {
     text-align: start;
@@ -68,7 +74,16 @@ rbg(197, 91, 17)*/
 }
 
 .upload-block__file-input {
+    z-index: 10;
+    position: relative;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
     height: 50px;
+    opacity: 0;
 }
 
 .upload-block__file-input:focus {
