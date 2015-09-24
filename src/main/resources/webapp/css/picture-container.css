@@ -15,7 +15,7 @@
     text-align: center;
     position: relative;
     border-radius: 20px;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.2))
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.15))
 }
 
 .picture--big {
@@ -31,8 +31,8 @@
     height: 100%;
     width: 100%;
     border-radius: 20px;
-    -webkit-filter: brightness(105%);
-    box-shadow: 0px 3px 3px 1px rgba(120, 56, 10, 0.95);
+    -webkit-filter: brightness(106%);
+    box-shadow: 0px 2px 2px 0px rgba(120, 56, 10, 0.95);
 
 }
 
