@@ -40,7 +40,7 @@
                 <input class="inherit-width text-color upload-form__item--file--textbox " value="No file chosen" id="filename" type="text" disabled>
             </div>
             <div class="upload-form__item">
-                <input id="addFile" type="submit" class="inherit-width text-color upload-form__button" value="Add file">
+                <input id="addFile" type="submit" class="inherit-width text-color upload-form__button" value="Add files">
             </div>
             <div class="upload-form__item upload-form__item--very-big upload-form__item--note">
                 Big images will be resized proportionally to 1600px width or 900px height
@@ -74,10 +74,10 @@
 <script src="libs/mousewheel/jquery.mousewheel-3.0.6.pack.js"></script>
 
 <script src="app.js"></script>
-<script src="js/quick.js"></script>
+<script src="js/file-input.js"></script>
 <script>
     $('.fancybox').fancybox();
-    quick();
+    fileInput.addChangeListener();
 </script>
 
 </body>

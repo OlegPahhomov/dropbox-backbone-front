@@ -10,7 +10,16 @@ rbg(197, 91, 17)*/
     margin-bottom: 20px;
     max-width: 617px; /* border adds dimension */ /* 620px is 3 pictures  */
     min-width: 410px;
-    background-image: linear-gradient(rgba(248, 115, 21, 0.1), rgba(248, 115, 21, 0.25));
+    padding-bottom: 15px;
+    background-image: linear-gradient(rgba(248, 115, 21, 0.1), rgba(248, 115, 21, 0.27));
+}
+
+@media only screen
+and (max-width: 662px) {
+    .upload-form {
+        max-width: 400px;
+        height: auto;
+    }
 }
 
 .upload-form__border {
@@ -30,6 +39,8 @@ rbg(197, 91, 17)*/
 
 .upload-form__heading {
     width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .upload-form__item {
@@ -63,7 +74,6 @@ rbg(197, 91, 17)*/
     height: 100%;
     width: 100%;
     flex-wrap: inherit;
-    margin-bottom: 15px;
     text-align: start;
     font-style: italic;
     font-weight: normal;
