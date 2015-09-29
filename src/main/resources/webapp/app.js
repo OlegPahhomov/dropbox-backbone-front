@@ -25,7 +25,7 @@
             var id = this.model.get('id');
             var pictureDTO = {
                 name: this.model.get('name'),
-                thumbnail_url: serverConfig.url('picture/small/' + id),
+                thumbnail_url: serverConfig.url('picture/fancy/' + id),
                 href_to_pop_up: "#show_popup_link_" + id,
                 href_pop_up: "show_popup_link_" + id,
                 picture_url: serverConfig.url('picture/' + id),
