@@ -12,12 +12,16 @@
 </head>
 <body>
 
+<!--<div class="Collage">
+    <img src="http://placehold.it/350x150"><img src="http://placehold.it/400x300"><img src="http://placehold.it/290x800">
+</div>-->
+
 <div id="content">
     <div id="loading-screen" style="display: none">
     </div>
     <div>
         <div class="logo">
-            <img src="img/Drawing.png">
+            <img src="img/Drawing%20(5).png">
         </div>
         <div id="gallery-container" class="pictures-container"></div>
     </div>
@@ -51,7 +55,10 @@
 
 </div>
 <script type="text/template" id="picture_template">
-    <div class="<%= picture_size_class %>">
+
+    <img src="<%= thumbnail_url %>">
+
+    <!--<div class="<%= picture_size_class %>">
         <a class="fancybox"
            href="<%= href_to_pop_up %>"
            rel="picture-gallery"
@@ -64,7 +71,7 @@
             <img src="<%= picture_url %>">
         </div>
         <button class="picture__close" title="Delete file">&times;</button>
-    </div>
+    </div>-->
 </script>
 
 <script src="js/serverConfig.js"></script>
