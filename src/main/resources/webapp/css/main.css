@@ -16,7 +16,7 @@ body {
     height: 100%;
     margin: 0;
     background-attachment: fixed;
-    background-image: linear-gradient(rgba(207, 207, 207, 0), rgba(207, 207, 207, 1));
+    background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.03));
     background-repeat: no-repeat;
     color: rgba(120, 56, 10, 1);
 }

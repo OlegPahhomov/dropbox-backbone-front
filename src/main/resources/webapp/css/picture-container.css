@@ -8,10 +8,10 @@
 }
 
 .picture {
-    margin-right: 10px;
+    margin-right: 20px;
     margin-top: 10px;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     text-align: center;
     position: relative;
     border-radius: 20px;
@@ -19,7 +19,7 @@
 }
 
 .picture--big {
-    width: 410px;
+    width: 620px;
 }
 
 .picture img {
@@ -30,9 +30,7 @@
     max-height: 100%;
     height: 100%;
     width: 100%;
-    border-radius: 20px;
     -webkit-filter: brightness(106%);
-    box-shadow: 0px 2px 2px 0px rgba(120, 56, 10, 0.95);
 
 }
 
