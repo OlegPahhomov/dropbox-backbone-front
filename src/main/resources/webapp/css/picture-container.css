@@ -1,4 +1,5 @@
 .pictures-container {
+    padding: 55px;
     display: flex;
     flex-flow: row wrap;
     align-content: flex-start;
@@ -9,12 +10,11 @@
 
 .picture {
     margin-right: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
     width: 300px;
     height: 300px;
     text-align: center;
     position: relative;
-    border-radius: 20px;
     background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.15))
 }
 
