@@ -3,55 +3,62 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Simple file uploader</title>
-    <meta name="viewport" content="initial-scale=0.7, maximum-scale=0.7">
+    <meta name="viewport" content="initial-scale=0.45, maximum-scale=0.45">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/picture-container.css">
+    <link rel="stylesheet" type="text/css" href="css/picture-collage.css">
     <link rel="stylesheet" type="text/css" href="css/upload-form.css">
     <link rel="stylesheet" type="text/css" href="libs/fancybox/source/jquery.fancybox.css">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="libs/justifiedGallery/justifiedGallery.min.css">
 </head>
 <body>
+<div id="loading-screen" style="display: none"></div>
 
 <div id="content">
-    <div id="loading-screen" style="display: none">
-    </div>
-    <div>
+    <div id="content--logo">
         <div class="logo">
-            <img src="img/Drawing.png">
+            <img src="img/Drawing%20(5).png">
         </div>
-        <div id="gallery-container" class="pictures-container"></div>
-    </div>
-    <form id="upload-form" class="upload-form upload-form__border">
-        <div class="upload-form__container">
-            <div class="upload-form__heading"><h3>Upload new files</h3></div>
+        <div id="content--body">
+        </div>
+        <div>
+            <div id="gallery-container" class="pictures-container"></div>
+        </div>
+        <form id="upload-form" class="upload-form upload-form__border">
+            <div class="upload-form__container">
+                <div class="upload-form__heading"><h3>Upload new files</h3></div>
 
-            <div class="upload-form__item upload-form__item--small">
-                <div class="inherit-width text-color upload-form__button upload-form__item--file--overlay">
-                    Choose Files
+                <div class="upload-form__item upload-form__item--small">
+                    <div class="inherit-width text-color upload-form__button upload-form__item--file--overlay">
+                        Choose Files
+                    </div>
+                    <input id="file" name="file"
+                           type="file"
+                           class="inherit-width upload-form__item--file-input--hidden"
+                           multiple
+                           accept="image/*"
+                           required/>
+                    <label for="filename"></label>
                 </div>
-                <input id="file" name="file"
-                       type="file"
-                       class="inherit-width upload-form__item--file-input--hidden"
-                       multiple
-                       accept="image/*"
-                       required/>
-                <label for="filename"></label>
+                <div class="upload-form__item upload-form__item--big">
+                    <input class="inherit-width text-color upload-form__item--file--textbox " value="No file chosen"
+                           id="filename" type="text" disabled>
+                </div>
+                <div class="upload-form__item upload-form__button__text--bigger">
+                    <input id="addFile" type="submit" class="inherit-width text-color upload-form__button "
+                           value="Add files">
+                </div>
+                <div class="upload-form__item upload-form__item--very-big upload-form__item--note">
+                    Big images will be resized proportionally to 1600px width or 900px height
+                </div>
             </div>
-            <div class="upload-form__item upload-form__item--big">
-                <input class="inherit-width text-color upload-form__item--file--textbox " value="No file chosen" id="filename" type="text" disabled>
-            </div>
-            <div class="upload-form__item upload-form__button__text--bigger">
-                <input id="addFile" type="submit" class="inherit-width text-color upload-form__button " value="Add files">
-            </div>
-            <div class="upload-form__item upload-form__item--very-big upload-form__item--note">
-                Big images will be resized proportionally to 1600px width or 900px height
-            </div>
-        </div>
-    </form>
-
+        </form>
+    </div>
 </div>
+
 <script type="text/template" id="picture_template">
-    <div class="<%= picture_size_class %>">
+
         <a class="fancybox"
            href="<%= href_to_pop_up %>"
            rel="picture-gallery"
@@ -64,7 +71,8 @@
             <img src="<%= picture_url %>">
         </div>
         <button class="picture__close" title="Delete file">&times;</button>
-    </div>
+
+
 </script>
 
 <script src="js/serverConfig.js"></script>
@@ -73,6 +81,8 @@
 <script src="libs/fancybox/source/jquery.fancybox.pack.js"></script>
 <script src="libs/backbone.js"></script>
 <script src="libs/mousewheel/jquery.mousewheel-3.0.6.pack.js"></script>
+<script src="libs/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="libs/colorbox/jquery.colorbox-min.js"></script>
 
 <script src="app.js"></script>
 <script src="js/file-input.js"></script>

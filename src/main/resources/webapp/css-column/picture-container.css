@@ -2,10 +2,14 @@
 .pictures-container {
     padding: 55px;
     box-sizing: border-box;
+    margin: 20px;
+
+    height: 1400px;
     display: flex;
-    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-flow: column wrap;
     align-content: flex-start;
-    margin-left: 20px;
 }
 
 .picture {

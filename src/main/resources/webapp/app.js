@@ -29,8 +29,9 @@
                 href_to_pop_up: "#show_popup_link_" + id,
                 href_pop_up: "show_popup_link_" + id,
                 picture_url: serverConfig.url('picture/' + id),
-                picture_size_class: this.model.get('ratio') > 1.45 ? 'picture picture--big' : 'picture'
+                picture_size_class: this.model.get('ratio') > 1.45 ? 'picture picture--big' : 'picture picture--small'
             };
+            $(this.el).addClass(pictureDTO.picture_size_class);
             $(this.el).html(tmpl(pictureDTO));
             return this;
         },

@@ -7,19 +7,20 @@ rgb(120,77, 46)
 rbg(197, 91, 17)
 */
 
-html {
+/*html {
     height: 100%;
     font-family : 'Droid Sans', arial, serif;
 }
+
 
 body {
     height: 100%;
     margin: 0;
     background-attachment: fixed;
-    background-image: linear-gradient(rgba(207, 207, 207, 0), rgba(207, 207, 207, 1));
+    background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01));
     background-repeat: no-repeat;
-    color: rgba(120, 56, 10, 1);
-}
+    color: rgba(248, 115, 21, 0.7);
+}*/
 
 .logo {
     margin-top: 10px;
